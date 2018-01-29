@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.UserinfoMapper">
+	<insert id="insertUserinfo" parameterType="entity.Userinfo">
+		<selectKey order="BEFORE" resultType="java.lang.Long"
+			keyProperty="id">
+			select idauto.nextval from dual
+		</selectKey>
+		insert into userinfo(id,username,password,age,insertdate)
+		values(#{id},#{username},#{password},#{age},#{insertdate})
+	</insert>
+
+	<insert id="insertUserinfoNew" parameterType="entity.Userinfo">
+		<selectKey order="BEFORE" resultType="java.lang.Long"
+			keyProperty="id">
+			select idauto.nextval from dual
+		</selectKey>
+		insert into userinfo(id,username,password,age,insertdate)
+		values(#{id},#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{age,jdbcType=INTEGER},#{insertdate,jdbcType=TIMESTAMP})
+	</insert>
+
+
+	<insert id="insertUserinfoIf" parameterType="entity.Userinfo">
+		<selectKey order="BEFORE" resultType="java.lang.Long"
+			keyProperty="id">
+			select idauto.nextval from dual
+		</selectKey>
+		<if test="password!=null">
+			insert into userinfo(id,username,password,age,insertdate)
+			values(#{id},#{username},#{password},#{age},#{insertdate})
+		</if>
+		<if test="password==null">
+			insert into userinfo(id,username,age,insertdate)
+			values(#{id},#{username},#{age},#{insertdate})
+		</if>
+	</insert>
+</mapper>

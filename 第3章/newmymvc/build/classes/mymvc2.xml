@@ -1,0 +1,7 @@
+<actions>
+	<action name="listUserinfo" class="controller.ListUserinfo">
+		<result name="toListUserinfoJSP">
+			listUserinfo.jsp
+		</result>
+	</action>
+</actions>

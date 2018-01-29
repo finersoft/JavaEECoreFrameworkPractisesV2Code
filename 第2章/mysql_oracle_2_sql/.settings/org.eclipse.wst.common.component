@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="mysql_oracle_2_sql">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="mysql_oracle_2_sql"/>
+        <property name="java-output-path" value="/mysql_oracle_2_sql/build/classes"/>
+    </wb-module>
+</project-modules>

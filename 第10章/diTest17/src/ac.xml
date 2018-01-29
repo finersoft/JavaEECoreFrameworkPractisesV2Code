@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<bean id="date1" class="java.util.Date"></bean>
+	<bean id="date2" class="java.util.Date"></bean>
+	<bean id="date3" class="java.util.Date"></bean>
+
+
+	<bean id="bookinfo1" class="entity.Bookinfo">
+		<property name="username" value="中国1"></property>
+	</bean>
+	<bean id="bookinfo2" class="entity.Bookinfo">
+		<property name="nowDate" ref="date1"></property>
+	</bean>
+	<bean id="bookinfo3" class="entity.Bookinfo">
+		<property name="listString">
+			<list>
+				<value>大中国1</value>
+				<value>大中国2</value>
+				<value>大中国3</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="bookinfo4" class="entity.Bookinfo">
+		<property name="listDate">
+			<list>
+				<ref bean="date1" />
+				<ref bean="date2" />
+				<ref bean="date3" />
+			</list>
+		</property>
+	</bean>
+
+	<!---->
+
+	<bean id="bookinfo5" class="entity.Bookinfo" p:username="中国2">
+	</bean>
+	<bean id="bookinfo6" class="entity.Bookinfo" p:nowDate-ref="date1">
+	</bean>
+	<util:list id="listString">
+		<value>中国1</value>
+		<value>中国2</value>
+		<value>中国3</value>
+		<value>中国4</value>
+	</util:list>
+	<bean id="bookinfo7" class="entity.Bookinfo" p:listString-ref="listString">
+	</bean>
+	<util:list id="listDate">
+		<ref bean="date1"></ref>
+		<ref bean="date2"></ref>
+		<ref bean="date3"></ref>
+	</util:list>
+	<bean id="bookinfo8" class="entity.Bookinfo" p:listDate-ref="listDate">
+	</bean>
+</beans>

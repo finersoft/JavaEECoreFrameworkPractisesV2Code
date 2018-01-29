@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="context1">
+		<jdbcConnection connectionURL="jdbc:oracle:thin:@localhost:1521:mybiee"
+			driverClass="oracle.jdbc.OracleDriver" password="ju" userId="ju" />
+		<javaModelGenerator targetPackage="mapping"
+			targetProject="GeneratorOracle" />
+		<sqlMapGenerator targetPackage="mapping"
+			targetProject="GeneratorOracle" />
+		<javaClientGenerator targetPackage="mapping"
+			targetProject="GeneratorOracle" type="XMLMAPPER" />
+		<table schema="ju" tableName="userinfo">
+			<generatedKey column="id"
+				sqlStatement="select userinfo_id.nextval from dual" identity="false" />
+		</table>
+	</context>
+</generatorConfiguration>
+
+

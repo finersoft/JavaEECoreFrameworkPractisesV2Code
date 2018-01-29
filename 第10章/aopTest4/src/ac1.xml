@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="myAfterReturningAdvice" class="advice.MyAfterReturningAdvice"></bean>
+	<bean id="myMethodBeforeAdvice" class="advice.MyMethodBeforeAdvice"></bean>
+	<bean id="myMethodInterceptor" class="advice.MyMethodInterceptor"></bean>
+	<bean id="myThrowsAdvice" class="advice.MyThrowsAdvice"></bean>
+
+	<bean id="dangdangbook" class="bookservice.DangDangBook"></bean>
+	<bean id="jdbook" class="bookservice.JDBook"></bean>
+
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interfaces">
+			<value>bookservice.ISendBook</value>
+		</property>
+		<property name="target" ref="dangdangbook"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>myMethodBeforeAdvice</value>
+				<value>myAfterReturningAdvice</value>
+				<value>myMethodInterceptor</value>
+				<value>myThrowsAdvice</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

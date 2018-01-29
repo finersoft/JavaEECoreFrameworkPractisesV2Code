@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="bookinfo1" class="entity.Bookinfo" c:username="中国1">
+	</bean>
+	<bean id="bookinfo2" class="entity.Bookinfo" c:_="中国2">
+	</bean>
+	<bean id="bookinfo3" class="entity.Bookinfo" c:username="中国3"
+		c:age="123">
+	</bean>
+	<bean id="bookinfo4" class="entity.Bookinfo" c:_0="中国4" c:_1="456">
+	</bean>
+</beans>

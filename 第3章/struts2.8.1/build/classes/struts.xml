@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="struts2login" extends="struts-default">
+		<action name="list" class="controller.Login">
+		</action>
+		<action name="listAA" class="controller.Login" method="listA">
+		</action>
+		<action name="listBB" class="controller.Login" method="listB">
+		</action>
+	</package>
+</struts>

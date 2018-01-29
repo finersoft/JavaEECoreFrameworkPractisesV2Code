@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>New Web Project</title>
+        <script>
+            var ajaxObject;
+            
+            function listString(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                ajaxObject.open("get", "listString.action?t=" + new Date().getTime(), true);
+                ajaxObject.onreadystatechange = listStringCallback;
+                ajaxObject.send();
+            }
+            
+            function listStringCallback(){
+                var abc = ["中国1", "中国2", "中国3", "中国4", "中国5"];
+                if (ajaxObject.readyState == 4) {
+                    if (ajaxObject.status == 200) {
+                        var jsonString = ajaxObject.responseText;
+                        var jsonObject = JSON.parse(jsonString);
+                        for (var i = 0; i < jsonObject.length; i++) {
+                            alert(jsonObject[i]);
+                        }
+                    }
+                }
+            }
+            
+            
+            function listBean(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                ajaxObject.open("get", "listBean.action?t=" + new Date().getTime(), true);
+                ajaxObject.onreadystatechange = listBeanCallback;
+                ajaxObject.send();
+            }
+            
+            function listBeanCallback(){
+                var abc = [{
+                    "password": "中国人1",
+                    "username": "中国1"
+                }, {
+                    "password": "中国人2",
+                    "username": "中国2"
+                }, {
+                    "password": "中国人3",
+                    "username": "中国3"
+                }, {
+                    "password": "中国人4",
+                    "username": "中国4"
+                }];
+                if (ajaxObject.readyState == 4) {
+                    if (ajaxObject.status == 200) {
+                        var jsonString = ajaxObject.responseText;
+                        var jsonObject = JSON.parse(jsonString);
+                        for (var i = 0; i < jsonObject.length; i++) {
+                            alert(jsonObject[i].username + " " + jsonObject[i].password);
+                        }
+                    }
+                }
+            }
+            
+            
+            function mapBeanArray(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                ajaxObject.open("get", "mapBeanArray.action?t=" + new Date().getTime(), true);
+                ajaxObject.onreadystatechange = mapBeanArrayCallback;
+                ajaxObject.send();
+            }
+            
+            function mapBeanArrayCallback(){
+                var abc = [{
+                    "key1": {
+                        "password": "中国人1",
+                        "username": "中国1"
+                    },
+                    "key2": {
+                        "password": "中国人2",
+                        "username": "中国2"
+                    },
+                    "key3": {
+                        "password": "中国人3",
+                        "username": "中国3"
+                    }
+                }];
+                if (ajaxObject.readyState == 4) {
+                    if (ajaxObject.status == 200) {
+                        var jsonString = ajaxObject.responseText;
+                        var jsonObject = JSON.parse(jsonString);
+                        jsonObject = jsonObject[0];
+                        for (var key in jsonObject) {
+                            alert(key + " " + jsonObject[key].username + " " + jsonObject[key].password);
+                        }
+                    }
+                }
+            }
+            
+            function mapBeanObject(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                ajaxObject.open("get", "mapBeanObject.action?t=" + new Date().getTime(), true);
+                ajaxObject.onreadystatechange = mapBeanObjectCallback;
+                ajaxObject.send();
+            }
+            
+            function mapBeanObjectCallback(){
+                var abc = {
+                    "key1": {
+                        "password": "中国人1",
+                        "username": "中国1"
+                    },
+                    "key2": {
+                        "password": "中国人2",
+                        "username": "中国2"
+                    },
+                    "key3": {
+                        "password": "中国人3",
+                        "username": "中国3"
+                    }
+                };
+                if (ajaxObject.readyState == 4) {
+                    if (ajaxObject.status == 200) {
+                        var jsonString = ajaxObject.responseText;
+                        var jsonObject = JSON.parse(jsonString);
+                        for (var key in jsonObject) {
+                            alert(key + " " + jsonObject[key].username + " " + jsonObject[key].password);
+                        }
+                    }
+                }
+            }
+            
+            
+            function mapStringArray(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                ajaxObject.open("get", "mapStringArray.action?t=" + new Date().getTime(), true);
+                ajaxObject.onreadystatechange = mapStringArrayCallback;
+                ajaxObject.send();
+            }
+            
+            function mapStringArrayCallback(){
+                var abc = [{
+                    "key1": "value1",
+                    "key2": "value2",
+                    "key3": "value3"
+                }];
+                if (ajaxObject.readyState == 4) {
+                    if (ajaxObject.status == 200) {
+                        var jsonString = ajaxObject.responseText;
+                        var jsonObject = JSON.parse(jsonString);
+                        jsonObject = jsonObject[0];
+                        for (var key in jsonObject) {
+                            alert(key + " " + jsonObject[key]);
+                        }
+                    }
+                }
+            }
+            
+            
+            function mapStringObject(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                ajaxObject.open("get", "mapStringObject.action?t=" + new Date().getTime(), true);
+                ajaxObject.onreadystatechange = mapStringObjectCallback;
+                ajaxObject.send();
+            }
+            
+            function mapStringObjectCallback(){
+                var abc = {
+                    "key1": "value1",
+                    "key2": "value2",
+                    "key3": "value3"
+                };
+                if (ajaxObject.readyState == 4) {
+                    if (ajaxObject.status == 200) {
+                        var jsonString = ajaxObject.responseText;
+                        var jsonObject = JSON.parse(jsonString);
+                        for (var key in jsonObject) {
+                            alert(key + " " + jsonObject[key]);
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="listString" onclick="javascript:listString()">
+        <br/>
+        <input type="button" value="listBean" onclick="javascript:listBean()">
+        <br/>
+        <input type="button" value="mapBeanArray" onclick="javascript:mapBeanArray()">
+        <br/>
+        <input type="button" value="mapBeanObject" onclick="javascript:mapBeanObject()">
+        <br/>
+        <input type="button" value="mapStringArray" onclick="javascript:mapStringArray()">
+        <br/>
+        <input type="button" value="mapStringObject" onclick="javascript:mapStringObject()">
+        <br/>
+    </body>
+</html>

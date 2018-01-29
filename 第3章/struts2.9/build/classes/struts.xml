@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="struts2login" extends="struts-default">
+		<global-results>
+			<result name="toListUserinfoAction" type="redirectAction">
+				listUserinfo
+			</result>
+		</global-results>
+		<action name="listUserinfo" class="controller.ListUserinfo">
+		</action>
+		<action name="delete" class="controller.Delete">
+		</action>
+		<action name="update" class="controller.Update">
+		</action>
+	</package>
+</struts>

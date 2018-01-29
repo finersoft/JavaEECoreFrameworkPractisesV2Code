@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>New Web Project</title>
+        <script src="json2.js">
+        </script>
+        <script>
+            function testMethod1(){
+                var myObject = {
+                    "username": "中国",
+                    "age": 123,
+                    "password": "中国人"
+                };
+                alert(myObject.username + " " + (myObject.age + 100) + " " + myObject.password);
+            }
+            
+            function testMethod2(){
+                var myObject = {
+                    "username": "中国\"\\\/",
+                    "age": 123,
+                    "password": "中国人"
+                };
+                alert(myObject.username + " " + (myObject.age + 100) + " " + myObject.password);
+            }
+            
+            
+            function testMethod3(){
+                var myObject = {
+                    "num1": 123,
+                    "num2": 123.456,
+                    "num3": -123,
+                    "num4": -123.456,
+                    "num5": -123.456e3,
+                    "num6": 123.456e3,
+                    "num7": -123.456e-3,
+                };
+                //alert(myObject.num1);
+                //alert(myObject.num2);
+                //alert(myObject.num3);
+                //alert(myObject.num4);
+                // alert(myObject.num5);
+                //alert(myObject.num6);
+                alert(myObject.num7);
+            }
+            
+            function testMethod4(){
+                var myObject = ["中国", 123, true, false, null];
+                alert(myObject[0]);
+                alert(myObject[1]);
+                alert(myObject[2]);
+                alert(myObject[3]);
+                alert(myObject[4]);
+                
+                alert();
+                alert();
+                
+                for (var i = 0; i < myObject.length; i++) {
+                    alert(myObject[i]);
+                }
+                
+            }
+            
+            function testMethod5(){
+                var userinfo = {
+                    "myArray": [{
+                        "username1": "usernameValue11"
+                    }, {
+                        "username2": "usernameValue22"
+                    }, ["abc", 123, true, [123, 456]]],
+                    "myObject": {
+                        "username": "大中国"
+                    },
+                    "myObject1": {
+                        "address": [{
+                            "name": "name1"
+                        }, {
+                            "name": "name2"
+                        }]
+                    },
+                };
+                
+                //alert(userinfo.myArray[0].username1+" "+userinfo.myArray[1].username2);
+                //alert(userinfo.myArray[2][0]);
+                //alert(userinfo.myArray[2][1]);
+                //alert(userinfo.myArray[2][2]);
+                
+                //alert(userinfo.myArray[2][3][0]);
+                //alert(userinfo.myArray[2][3][1]);
+                
+                //alert(userinfo.myObject.username);
+                
+                alert(userinfo.myObject1.address[0].name);
+                alert(userinfo.myObject1.address[1].name);
+            }
+            
+            function Userinfo(username, password, bigtext, age){
+                this.username = username;
+                this.password = password;
+                this.bigtext = bigtext;
+                this.age = age;
+            }
+            
+            function testMethod6(){
+                var bigTextValue = document.getElementById("mytextarea").value;
+                var userinfo = new Userinfo("中国", "中国人", bigTextValue, 123);
+                var jsonString = JSON.stringify(userinfo);
+                alert(jsonString);
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" onclick="javascript:testMethod1()" value="test1">
+        <br/>
+        <input type="button" onclick="javascript:testMethod2()" value="test2">
+        <br/>
+        <input type="button" onclick="javascript:testMethod3()" value="test3">
+        <br/>
+        <input type="button" onclick="javascript:testMethod4()" value="test4">
+        <br/>
+        <input type="button" onclick="javascript:testMethod5()" value="test5">
+        <br/>
+        <br/>
+        <textarea id="mytextarea" rows="5" cols="5">
+        </textarea>
+        <input type="button" onclick="javascript:testMethod6()" value="test5">
+    </body>
+</html>

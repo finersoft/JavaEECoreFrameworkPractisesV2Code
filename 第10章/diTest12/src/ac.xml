@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="userinfo1" class="entity.Userinfo">
+	</bean>
+	<bean id="userinfo2" class="entity.Userinfo">
+	</bean>
+
+	<bean id="bookinfo1" class="entity.Bookinfo">
+		<constructor-arg ref="userinfo1"></constructor-arg>
+	</bean>
+
+	<bean id="bookinfo2" class="entity.Bookinfo">
+		<constructor-arg ref="userinfo1"></constructor-arg>
+		<constructor-arg ref="userinfo2"></constructor-arg>
+	</bean>
+</beans>

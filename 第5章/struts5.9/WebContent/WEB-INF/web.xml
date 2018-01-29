@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>struts5.9</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>getTest</display-name>
+    <servlet-name>getTest</servlet-name>
+    <servlet-class>controller.getTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getTest</servlet-name>
+    <url-pattern>/getTest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>postTest</display-name>
+    <servlet-name>postTest</servlet-name>
+    <servlet-class>controller.postTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>postTest</servlet-name>
+    <url-pattern>/postTest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>postTestObject</display-name>
+    <servlet-name>postTestObject</servlet-name>
+    <servlet-class>controller.postTestObject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>postTestObject</servlet-name>
+    <url-pattern>/postTestObject</url-pattern>
+  </servlet-mapping>
+</web-app>

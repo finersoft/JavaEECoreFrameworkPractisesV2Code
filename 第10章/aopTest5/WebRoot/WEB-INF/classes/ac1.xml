@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<bean id="userinfoService" class="service.UserinfoService"></bean>
+	<bean id="myaspect" class="aspect.AspectObject"></bean>
+
+	<aop:config>
+		<aop:aspect ref="myaspect">
+			<aop:before method="before"
+				pointcut="execution(* service.UserinfoService.*(..))" />
+			<aop:after method="after"
+				pointcut="execution(* service.UserinfoService.*(..))" />
+			<aop:after-returning method="afterReturning"
+				pointcut="execution(* service.UserinfoService.*(..))" />
+			<aop:after-throwing method="afterThrowing"
+				pointcut="execution(* service.UserinfoService.*(..))" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.UserinfoMapper">
+	<select id="selectAll1" parameterType="string" resultType="entity.Userinfo">
+		<bind name="querySQL" value="'%'+_parameter+'%'" />
+		select * from userinfo where username like #{querySQL}
+	</select>
+	<select id="selectAll2" parameterType="entity.Userinfo"
+		resultType="entity.Userinfo">
+		<bind name="querySQL" value="'%'+_parameter.getUsername()+'%'" />
+		select * from userinfo where username like #{querySQL}
+	</select>
+	<select id="selectAll3" parameterType="entity.Userinfo"
+		resultType="entity.Userinfo">
+		<bind name="querySQL" value="'%'+username+'%'" />
+		select * from userinfo where username like #{querySQL}
+	</select>
+	<select id="selectAll4" parameterType="entity.Userinfo"
+		resultType="entity.Userinfo">
+		<bind name="querySQL" value="'%'+_parameter.username+'%'" />
+		select * from userinfo where username like #{querySQL}
+	</select>
+	<select id="selectAll5" parameterType="entity.Userinfo"
+		resultType="entity.Userinfo">
+		<bind name="querySQL" value="'%'+#root._parameter.username+'%'" />
+		select * from userinfo where username like #{querySQL}
+	</select>
+	<select id="selectAll6" parameterType="map" resultType="entity.Userinfo">
+		<bind name="querySQL" value="'%'+username+'%'" />
+		select * from userinfo where username like #{querySQL}
+	</select>
+</mapper>

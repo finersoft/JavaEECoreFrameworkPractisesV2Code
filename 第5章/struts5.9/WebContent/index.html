@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>New Web Project</title>
+        <script>
+            var ajaxObject;
+            
+            function testMethod1(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                var myArray = new Array();
+                myArray[0] = "中国1post";
+                myArray[1] = "中国2";
+                myArray[2] = "中国3";
+                myArray[3] = "中国4";
+                
+                jsonString = JSON.stringify(myArray);
+                jsonString = "jsonString=" + jsonString;
+                
+                ajaxObject.open("post", "postTest?t=" + new Date().getTime(), true);
+                ajaxObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajaxObject.send(jsonString);
+            }
+            
+            function testMethod2(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                var myArray = new Array();
+                myArray[0] = "中国1get";
+                myArray[1] = "中国2";
+                myArray[2] = "中国3";
+                myArray[3] = "中国4";
+                
+                jsonString = JSON.stringify(myArray);
+                jsonString = "jsonString=" + jsonString;
+                
+                ajaxObject.open("get", "getTest?t=" + new Date().getTime() + "&" + jsonString, true);
+                ajaxObject.send();
+            }
+            
+            function Userinfo(username, password){
+                this.username = username;
+                this.password = password;
+            }
+            
+            function testMethod3(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                var myArray = new Array();
+                myArray[0] = new Userinfo("中国1", "中国人11");
+                myArray[1] = new Userinfo("中国2", "中国人22");
+                myArray[2] = new Userinfo("中国3", "中国人33");
+                myArray[3] = new Userinfo("中国4", "中国人44");
+                
+                jsonString = JSON.stringify(myArray);
+                jsonString = "jsonString=" + jsonString;
+                
+                ajaxObject.open("post", "postTestObject?t=" + new Date().getTime(), true);
+                ajaxObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajaxObject.send(jsonString);
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="post" onclick="javascript:testMethod1()">
+        <br/>
+        <input type="button" value="get" onclick="javascript:testMethod2()">
+        <br/>
+        <input type="button" value="postObject" onclick="javascript:testMethod3()">
+    </body>
+</html>

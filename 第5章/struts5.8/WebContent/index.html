@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>New Web Project</title>
+        <script>
+            var ajaxObject;
+            function testMethod1(){
+                if (window.ActiveXObject) {
+                    ajaxObject = new ActiveXObject("microsoft.xmlhttp");
+                }
+                else {
+                    ajaxObject = new XMLHttpRequest();
+                }
+                
+                var bigTextValue = document.getElementById("bigtext").value;
+                
+                var jsonString = new Userinfo("中国", "中国人", bigTextValue, 123);
+                jsonString = JSON.stringify(jsonString);
+                jsonString = "jsonString=" + jsonString;
+                
+                ajaxObject.open("get", "test.action?t=" + new Date().getTime()+"&"+jsonString, true);
+                ajaxObject.send();
+            }
+            
+            function Userinfo(username, password, bigtext, age){
+                this.username = username;
+                this.password = password;
+                this.bigtext = bigtext;
+                this.age = age;
+            }
+        </script>
+    </head>
+    <body>
+        <textarea id="bigtext" rows="10" cols="10">
+        </textarea>
+        <br/>
+        <input type="button" onclick="javascript:testMethod1()">
+    </body>
+</html>

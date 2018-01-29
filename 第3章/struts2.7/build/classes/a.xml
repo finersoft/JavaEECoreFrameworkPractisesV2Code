@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="a" extends="struts-default" namespace="/a">
+		<action name="login" class="a.controller.Login">
+		</action>
+		<action name="froma_tob" class="a.controller.FromA_ToB">
+			<result name="toBAction" type="redirectAction">
+				<param name="namespace">/b</param>
+				<param name="actionName">baction</param>
+				<param name="xxxxxxxxx">${gotoPage}</param>
+			</result>
+
+		</action>
+	</package>
+</struts>

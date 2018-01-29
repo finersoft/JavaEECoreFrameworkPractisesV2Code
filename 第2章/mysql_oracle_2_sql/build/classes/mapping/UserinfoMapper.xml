@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.UserinfoMapper">
+	<select id="selectAllOracle" parameterType="map" resultType="entity.Userinfo">
+		select * from userinfo
+		where username like '%'||#{username}||'%'
+	</select>
+	<select id="selectAllMYSQL" parameterType="map" resultType="entity.Userinfo">
+		select * from userinfo
+		where username like concat('%',#{username},'%')
+	</select>
+</mapper>

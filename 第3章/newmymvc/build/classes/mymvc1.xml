@@ -1,0 +1,10 @@
+<actions>
+	<action name="login" class="controller.Login">
+		<result name="toListUserinfoAction" type="redirectAction">
+			listUserinfo.abc
+		</result>
+		<result name="toIndexJSP">
+			index.jsp
+		</result>
+	</action>
+</actions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.UserinfoMapper">
+	<select id="selectAll1" parameterType="list" resultType="entity.Userinfo">
+		select *
+		from userinfo where id in
+		<foreach item="eachId" collection="list" open="(" separator=","
+			close=")">
+			#{eachId}
+		</foreach>
+	</select>
+
+	<select id="selectAll2" parameterType="queryentity.QueryEntity"
+		resultType="entity.Userinfo">
+		select *
+		from userinfo where id in
+		<foreach item="eachId" collection="xxxxxxxxx" open="("
+			separator="," close=")">
+			#{eachId}
+		</foreach>
+	</select>
+
+	<select id="selectAll3" parameterType="map" resultType="entity.Userinfo">
+		select *
+		from userinfo where id in
+		<foreach item="eachId" collection="yyyyyyyyyyyy" open="("
+			separator="," close=")">
+			#{eachId}
+		</foreach>
+	</select>
+
+	<select id="selectAll4" parameterType="map" resultType="entity.Userinfo">
+		select *
+		from userinfo where username like '%'||#{username}||'%'
+	</select>
+</mapper>

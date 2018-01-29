@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.UserinfoMapper">
+
+	<sql id="userinfo5Column">id "id",username "username",password,age,insertdate</sql>
+
+	<select id="selectAll" resultType="entity.Userinfo">
+		select
+		<include refid="userinfo5Column"></include>
+		from userinfo order
+		by id asc
+	</select>
+
+	<select id="selectById" parameterType="long" resultType="entity.Userinfo">
+		select
+		<include refid="userinfo5Column"></include>
+		from userinfo where id=#{userId}
+	</select>
+
+
+	<select id="selectAllMap" resultType="map">
+		select
+		<include refid="userinfo5Column"></include>
+		from userinfo order
+		by id asc
+	</select>
+
+	<select id="selectByIdMap" parameterType="long" resultType="map">
+		select
+		<include refid="userinfo5Column"></include>
+		from userinfo where id=#{userId}
+	</select>
+</mapper>

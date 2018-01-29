@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.UserinfoMapper">
+	<select id="selectAll" parameterType="map" resultType="entity.Userinfo">
+		select * from userinfo
+		<where>
+			<if test="username!=null">username like #{username}</if>
+			<if test="password!=null">and password like #{password}</if>
+		</where>
+	</select>
+
+	<select id="selectAll2" parameterType="map" resultType="entity.Userinfo">
+		select * from userinfo where 1=1
+		<choose>
+			<when test="username!=null"> and username like #{username}</when>
+			<when test="password!=null"> and password like #{password}</when>
+			<otherwise>and age=100</otherwise>
+		</choose>
+	</select>
+
+	<update id="updateUserinfoById" parameterType="map">
+		update userinfo
+		<set>
+			<if test="username!=null">username=#{username},</if>
+			<if test="password!=null">password=#{password},</if>
+			<if test="age!=null">age=#{age},</if>
+			<if test="insertdate!=null">insertdate=#{insertdate}</if>
+		</set>
+		where id=#{id}
+	</update>
+
+</mapper>

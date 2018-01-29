@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.UserinfoMapper">
+	<insert id="insertUserinfo" parameterType="entity.Userinfo">
+		<selectKey order="BEFORE" resultType="java.lang.Long"
+			keyProperty="id">
+			select idauto.nextval from dual
+		</selectKey>
+		insert into userinfo(id,username,password,age,insertdate)
+		values(#{id},#{username},#{password},#{age},#{insertdate})
+	</insert>
+
+	<select id="selectById" parameterType="long" resultType="entity.Userinfo">
+		select *
+		from userinfo where id=#{userId}
+	</select>
+
+	<delete id="deleteById" parameterType="long">
+		delete
+		from userinfo
+		where
+		id=#{userId}
+	</delete>
+</mapper>

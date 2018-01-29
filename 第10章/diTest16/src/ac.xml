@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="date1" class="java.util.Date"></bean>
+	<bean id="date2" class="java.util.Date"></bean>
+	<bean id="date3" class="java.util.Date"></bean>
+	<bean id="date4" class="java.util.Date"></bean>
+
+
+	<bean id="bookinfo1" class="entity.Bookinfo">
+		<constructor-arg type="java.lang.String" value="中国"></constructor-arg>
+		<constructor-arg type="java.util.List">
+			<list>
+				<value>中国人1</value>
+				<value>中国人2</value>
+				<value>中国人3</value>
+				<value>中国人4</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="bookinfo2" class="entity.Bookinfo">
+		<constructor-arg type="int" value="1"></constructor-arg>
+		<constructor-arg type="java.util.List">
+			<list>
+				<ref bean="date1"></ref>
+				<ref bean="date2"></ref>
+				<ref bean="date3"></ref>
+				<ref bean="date4"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="bookinfo3" class="entity.Bookinfo">
+		<constructor-arg type="java.lang.String" value="中国"></constructor-arg>
+		<constructor-arg type="java.util.Set">
+			<set>
+				<value>中国人1</value>
+				<value>中国人2</value>
+				<value>中国人3</value>
+				<value>中国人4</value>
+			</set>
+		</constructor-arg>
+	</bean>
+	<bean id="bookinfo4" class="entity.Bookinfo">
+		<constructor-arg type="int" value="1"></constructor-arg>
+		<constructor-arg type="java.util.Set">
+			<set>
+				<ref bean="date1"></ref>
+				<ref bean="date2"></ref>
+				<ref bean="date3"></ref>
+				<ref bean="date4"></ref>
+			</set>
+		</constructor-arg>
+	</bean>
+
+	<bean id="bookinfo5" class="entity.Bookinfo">
+		<constructor-arg type="java.lang.String" value="中国"></constructor-arg>
+		<constructor-arg type="java.util.Map">
+			<map>
+				<entry key="a1" value="中国1" />
+				<entry key="a2" value="中国2" />
+				<entry key="a3" value="中国3" />
+			</map>
+		</constructor-arg>
+	</bean>
+	<bean id="bookinfo6" class="entity.Bookinfo">
+		<constructor-arg type="int" value="1"></constructor-arg>
+		<constructor-arg type="java.util.Map">
+			<map>
+				<entry key="a1" value-ref="date1" />
+				<entry key="a2" value-ref="date2" />
+				<entry key="a3" value-ref="date3" />
+				<entry key="a3" value-ref="date4" />
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

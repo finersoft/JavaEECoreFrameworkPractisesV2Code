@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"mybatis-3-mapper.dtd">
+<mapper namespace="mapping.IUserinfoMapping">
+	<insert id="save" parameterType="entity.Userinfo">
+		<selectKey resultType="java.lang.Long" order="BEFORE"
+			keyProperty="id">
+			select idauto.nextval from dual
+		</selectKey>
+		insert into userinfo(id,username)
+		values(#{id},#{username})
+	</insert>
+</mapper>
