@@ -25,5 +25,6 @@ public class Test {
 		session.insert("insert", userinfo);
 		session.commit();
 		session.close();
+		System.out.println("Ìí¼Ó³É¹¦");
 	}
 }
