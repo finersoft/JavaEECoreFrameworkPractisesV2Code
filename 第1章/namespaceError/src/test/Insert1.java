@@ -14,5 +14,6 @@ public class Insert1 {
 		session.insert("B.insertUserinfo");
 		session.commit();
 		session.close();
+		System.out.println("≤Â»Î≥…π¶");
 	}
 }

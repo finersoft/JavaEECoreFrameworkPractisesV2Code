@@ -6,6 +6,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertUserinfo">
 		insert into
 		userinfo(id,username)
-		values(idauto.nextval,'B')
+		values(userinfo_id.nextval,'B')
 	</insert>
 </mapper>
