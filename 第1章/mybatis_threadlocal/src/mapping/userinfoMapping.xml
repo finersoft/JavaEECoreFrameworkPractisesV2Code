@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="userinfo">
 	<insert id="insertUserinfo" parameterType="map">
 		<selectKey order="BEFORE" resultType="long" keyProperty="id">
-			select idauto.nextval from dual
+			select userinfo_id.nextval from dual
 		</selectKey>
 		insert into userinfo(id,username,password,age,insertdate)
 		values(#{id},#{username},#{password},#{age},#{insertdate})

@@ -19,6 +19,7 @@ public class Insert1 {
 
 			DBOperate dbo = new DBOperate();
 			dbo.save("insertUserinfo", map);
+			System.out.println("≤Â»Î≥…π¶");
 		} catch (Exception e) {
 			e.printStackTrace();
 			GetSqlSession.rollback();

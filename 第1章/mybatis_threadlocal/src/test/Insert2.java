@@ -27,10 +27,12 @@ public class Insert2 {
 			DBOperate dbo = new DBOperate();
 			dbo.save("insertUserinfo", map1);
 			dbo.save("insertUserinfo", map2);
+			System.out.println("插入成功");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			GetSqlSession.rollback();
+			System.out.println("插入失败");
 		} finally {
 			GetSqlSession.commit();
 		}
