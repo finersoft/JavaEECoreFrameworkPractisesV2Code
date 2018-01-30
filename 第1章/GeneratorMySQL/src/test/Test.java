@@ -27,5 +27,6 @@ public class Test {
 		session.insert("insert", userinfo);
 		session.commit();
 		session.close();
+		System.out.println("插入数据成功");
 	}
 }
