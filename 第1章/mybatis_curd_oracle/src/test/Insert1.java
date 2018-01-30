@@ -26,6 +26,6 @@ public class Insert1 {
 		session.commit();
 		session.close();
 
-		System.out.println(userinfo.getId());
+		System.out.println(userinfo.getId());//序列直接写在sql语句中是不会更新model的主键的。
 	}
 }

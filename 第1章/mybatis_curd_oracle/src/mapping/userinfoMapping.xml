@@ -6,13 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insert1" parameterType="entity.Userinfo">
 		insert into
 		userinfo(id,username,password,age,insertdate)
-		values(idauto.nextval,#{username},#{password},#{age},#{insertdate})
+		values(userinfo_id.nextval,#{username},#{password},#{age},#{insertdate})
 	</insert>
 
 	<insert id="insert2" parameterType="entity.Userinfo">
 		<selectKey order="BEFORE" resultType="java.lang.Long"
 			keyProperty="id">
-			select idauto.nextval from dual
+			select userinfo_id.nextval from dual
 		</selectKey>
 		insert into
 		userinfo(id,username,password,age,insertdate)
