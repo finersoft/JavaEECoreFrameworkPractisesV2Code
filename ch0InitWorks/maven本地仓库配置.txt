@@ -1,2 +1,6 @@
 jodbc6:
 mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.1.0.7.0 -Dpackaging=jar -Dfile=H:\JavaEECoreFrameworkPractisesV2Code\jars\ojdbc6.jar
+
+sql server 4:sqljdbc4
+mvn install:install-file -Dfile=D:\rj\jars\sqljdbc4-4.0.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0
+
